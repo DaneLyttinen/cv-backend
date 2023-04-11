@@ -16,9 +16,9 @@ fn set_goal(value: String) {
 pub async fn function_handler(_event: Request) -> Result<Response<Body>, Error> {
     // Extract some useful information from the request
     let resp: Result<Response<Body>, Error>;
-    if _event.uri() == "/target"{
+    if _event.uri().path() == "/target"{
         resp = target_handler(_event);
-    } else if _event.uri() == "/assess" {
+    } else if _event.uri().path() == "/assess" {
         resp = assess_handler(_event);
     } else {
         resp = Ok(Response::builder()

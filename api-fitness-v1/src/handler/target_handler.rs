@@ -8,6 +8,7 @@ use super::{set_goal};
 
 pub fn target_handler(_event: Request) -> Result<Response<Body>, Error> {
     let body = _event.body();
+    println!("{:?}",body);
     let s = std::str::from_utf8(body).expect("invalid utf-8 sequence");
     let target_request = match serde_json::from_str::<TargetRequest>(s) {
         Ok(target_req) => target_req,
@@ -21,7 +22,6 @@ pub fn target_handler(_event: Request) -> Result<Response<Body>, Error> {
         }
     };
     set_goal(target_request.target);
-    //TARGET_STRING.replace_range(0..TARGET_STRING.len(), &target_request.target);
     let resp = Response::builder()
         .status(200)
         .header("content-type", "application/json")
