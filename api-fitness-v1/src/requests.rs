@@ -53,3 +53,15 @@ impl fmt::Display for AssessResponse {
         write!(f, "{},{:?}", self.id, self.scores)
     }
 }
+#[derive(Serialize, Deserialize, Debug)]
+pub struct TargetRequest{
+    pub id: u32,
+    pub parallel: bool,
+    pub target: String
+}
+
+impl fmt::Display for TargetRequest{
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{},{},{}", self.id, self.parallel, self.target)
+    }
+}

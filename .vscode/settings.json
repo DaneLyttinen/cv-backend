@@ -1,0 +1,6 @@
+{
+    "rust-analyzer.linkedProjects": [
+        ".\\api-fitness-v1\\Cargo.toml",
+        ".\\api-fitness-v1\\Cargo.toml"
+    ]
+}
